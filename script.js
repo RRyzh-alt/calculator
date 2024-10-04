@@ -1,6 +1,21 @@
-let firstNumber = 0;
+let firstNumber = null;
 let chosenOperator = '';
-let secondNumber = 0;
+let secondNumber = null;
+let display = [];
+let value = null;
+let gotFirst = false;
+
+
+const screen = document.querySelector('#screen');
+const subScreen = document.querySelector('#sub-screen')
+const buttons = document.querySelectorAll('.number');
+const operators = document.querySelectorAll('.operator');
+const equals = document.querySelector('#equals');
+const clear = document.querySelector('#clear');
+const percentage = document.querySelector('#percentage')
+const decimal = document.querySelector('#decimal')
+const del = document.querySelector('#delete')
+const sqRoot = document.querySelector('#sqroot')
 
 function multiply(firstNumber, secondNumber){
   return +firstNumber * +secondNumber;
@@ -38,29 +53,15 @@ function operate(firstNumber, operator, secondNumber) {
 }
 
 
-let display = [];
-let value = 0;
-let gotFirst = false;
-let gotSecond = false;
 
-const screen = document.querySelector('#screen');
-const subScreen = document.querySelector('#sub-screen')
-const buttons = document.querySelectorAll('.number');
-const operators = document.querySelectorAll('.operator');
-const equals = document.querySelector('#equals');
-const clear = document.querySelector('#clear');
-const percentage = document.querySelector('#percentage')
-const decimal = document.querySelector('#decimal')
-const del = document.querySelector('#delete')
-const sqRoot = document.querySelector('#sqroot')
 
 //reset values
 function ac() {
-  value = 0;
+  value = null;
   display = [];
   calculation = []
-  firstNumber = 0;
-  secondNumber = 0;
+  firstNumber = null;
+  secondNumber = null;
   chosenOperator = '';
   gotFirst = false;
   decimal.disabled = false;
@@ -93,7 +94,7 @@ operators.forEach(operator => {
       }else {
       screen.textContent = `${firstNumber} ${chosenOperator}`;
       }
-      value = 0;
+      value = null;
       display = [];
     } else {
       secondNumber = value;
@@ -105,9 +106,9 @@ operators.forEach(operator => {
       }else {
       screen.textContent = `${firstNumber} ${chosenOperator}`;
       }
-      value = 0;
+      value = null;
       display = [];
-      secondNumber = 0;
+      secondNumber = null;
     }
     gotFirst = true
     decimal.disabled = false;
@@ -124,6 +125,8 @@ equals.addEventListener("click", () => {
   }
   if (chosenOperator === '√') {
     subScreen.textContent = chosenOperator + ' ' + display.join('') + ' ' + '=';
+  } else if (firstNumber === 0 || firstNumber === null){
+    subScreen.textContent = chosenOperator + ' ' + display.join('') + ' ' + '=';
   }else {
     subScreen.textContent = firstNumber + ' ' + chosenOperator + ' ' + display.join('') + ' ' + '=';
   }
@@ -135,7 +138,7 @@ equals.addEventListener("click", () => {
   screen.textContent = display;
   value = answer;
   display = [];
-  secondNumber = 0
+  secondNumber = null
   chosenOperator = ''
   gotFirst = false;
   decimal.disabled = false;

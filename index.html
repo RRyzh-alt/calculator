@@ -7,37 +7,49 @@
         <script defer src="script.js"></script>
     </head>
     <body>
-        <div id="calculator">
-            <div id="screen-container">
-                <div id="sub-screen"></div>
-                <div id="screen">12456</div> 
+        <div class="content">
+            <img id="logo" src="images/kawaii-calculations-logo.png">
+            <div class="calculator-container">
+                <div id="calculator">
+                    <div id="screen-container">
+                        <div id="sub-screen"></div>
+                        <div id="screen"></div> 
+                    </div>
+                    <div id="buttons">
+                        <div class="numbers">
+                            <button class="number" value="1">1</button>
+                            <button class="number" value="2">2</button>
+                            <button class="number" value="3">3</button>
+                            <button class="number" value="4">4</button>
+                            <button class="number" value="5">5</button>
+                            <button class="number" value="6">6</button>
+                            <button class="number" value="7">7</button>
+                            <button class="number" value="8">8</button>
+                            <button class="number" value="9">9</button>
+                            <button class="number" value="0">0</button>
+                            <button id="decimal" class="special" value=".">.</button>
+                            <button id="percentage" class="special" >%</button>
+                        </div>
+                        <div class="operators">
+                            <button id="delete" class="special">Del</button>
+                            <button id="clear" class="special">AC</button>
+                            <button class="operator">+</button>
+                            <button class="operator">-</button>
+                            <button class="operator">/</button>
+                            <button class="operator">*</button>
+                            <button id="equals" class="special">=</button>
+                            <button id="sqroot" class="operator">√</button>
+                        </div>
+                    </div>
+                </div>  
             </div>
-            <div id="buttons">
-                <div class="numbers">
-                    <button class="number" value="1">1</button>
-                    <button class="number" value="2">2</button>
-                    <button class="number" value="3">3</button>
-                    <button class="number" value="4">4</button>
-                    <button class="number" value="5">5</button>
-                    <button class="number" value="6">6</button>
-                    <button class="number" value="7">7</button>
-                    <button class="number" value="8">8</button>
-                    <button class="number" value="9">9</button>
-                    <button class="number" value="0">0</button>
-                    <button id="decimal" class="special" value=".">.</button>
-                    <button id="percentage" class="special" >%</button>
-                </div>
-                <div class="operators">
-                    <button id="delete" class="special">Del</button>
-                    <button id="clear" class="special">AC</button>
-                    <button class="operator">+</button>
-                    <button class="operator">-</button>
-                    <button class="operator">/</button>
-                    <button class="operator">*</button>
-                    <button id="equals" class="special">=</button>
-                    <button id="sqroot" class="operator">√</button>
-                </div>
-            </div>
+            <img id="creatures" src="images/kawaii-math-creatures.png" alt="cute creatures wearing backpacks underneath a mathematical calculation">
         </div>
+    <div class="footer">
+        <div>Reviah &copy 2024</div>
+        <a href="https://github.com/RRyzh-alt" target="_blank" rel="noopener noreferrer">
+            <img class="github" src="images/github-mark-white.png" alt="Github logo">
+        </a>
+    </div>
     </body>
 </html>
