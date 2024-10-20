@@ -46,6 +46,11 @@ body {
     border-style:double;
 }
 
+#screen,
+#sub-screen {
+    border: 2px inset black;
+}
+
 #screen {
     height: 50px;
     width: 280px;

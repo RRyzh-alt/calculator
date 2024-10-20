@@ -5,7 +5,6 @@ let display = [];
 let value = null;
 let gotFirst = false;
 
-
 const screen = document.querySelector('#screen');
 const subScreen = document.querySelector('#sub-screen')
 const buttons = document.querySelectorAll('.number');
@@ -52,9 +51,6 @@ function operate(firstNumber, operator, secondNumber) {
       }
 }
 
-
-
-
 //reset values
 function ac() {
   value = null;
@@ -68,9 +64,8 @@ function ac() {
 }
 
 // on b
-buttons.forEach(button => {
-button.addEventListener("click", () => {
-  display.push(button.value);
+function buttonPress() {
+  display.push(this.value);
   value = screen.textContent = display.join('');
   if (chosenOperator === '') {
     subScreen.textContent = display.join('')
@@ -79,9 +74,26 @@ button.addEventListener("click", () => {
   }else{
     subScreen.textContent = firstNumber + ' ' + chosenOperator + ' ' + display.join('')
   }
+}
 
-  })
+buttons.forEach(button => {
+button.addEventListener("click", buttonPress)
 })
+
+  document.addEventListener("keydown", (e) => {
+    let key = e.key
+    if (+key) {
+    display.push(e.key);
+    }
+    value = screen.textContent = display.join('');
+    if (chosenOperator === '') {
+      subScreen.textContent = display.join('')
+    }else if (chosenOperator === '√') {
+      subScreen.textContent = chosenOperator + ' ' + display.join('')
+    }else{
+      subScreen.textContent = firstNumber + ' ' + chosenOperator + ' ' + display.join('')
+    }
+  })
 
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
@@ -89,8 +101,7 @@ operators.forEach(operator => {
       firstNumber = +value;
       chosenOperator = operator.textContent;
       if (chosenOperator === '√') {
-        screen.textContent = chosenOperator;
-        
+        screen.textContent = chosenOperator; 
       }else {
       screen.textContent = `${firstNumber} ${chosenOperator}`;
       }
@@ -103,7 +114,7 @@ operators.forEach(operator => {
       chosenOperator = operator.textContent;
       if (chosenOperator === '√') {
         screen.textContent = chosenOperator;
-      }else {
+      }else{
       screen.textContent = `${firstNumber} ${chosenOperator}`;
       }
       value = null;
